@@ -1,0 +1,210 @@
+h1 {
+  font-family: Cookie; }
+
+button,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: 'Dosis', sans-serif;
+  letter-spacing: 1px; }
+
+body {
+  background-color: #333333; }
+
+.row {
+  margin: 0; }
+
+.wrap-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .wrap-logo .logo-sby {
+    font-size: 35px;
+    color: #E8C8BD;
+    margin: 0;
+    font-weight: 500; }
+  .wrap-logo .logo-real-estate {
+    font-size: 25px;
+    color: white;
+    margin: 0;
+    font-weight: 100; }
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #333333; }
+  .navbar .navbar-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .navbar .navbar-links h2 {
+      color: white;
+      font-size: 20px;
+      font-weight: lighter;
+      margin: 0;
+      padding: 0 10px; }
+    .navbar .navbar-links h2:hover {
+      color: #E8C8BD; }
+
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: white; }
+  .center .items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 100px 0px; }
+    .center .items .second-background {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.25);
+      padding: 20px;
+      border-radius: 50px; }
+      .center .items .second-background h1 {
+        font-size: 50px;
+        font-weight: 900;
+        color: white;
+        margin-bottom: 20px;
+        font-weight: "bold";
+        text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); }
+        .center .items .second-background h1 .heart {
+          color: #E8C8BD; }
+      .center .items .second-background button {
+        background-color: #053936;
+        border: 1px solid #053936;
+        border-radius: 30px;
+        padding: 10px 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        color: white; }
+      .center .items .second-background button:hover {
+        background-color: rgba(5, 57, 54, 0.5); }
+
+.about-us {
+  background-color: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 20px 0; }
+  .about-us h2 {
+    font-size: 26px;
+    color: #C5C5C5; }
+  .about-us h4 {
+    color: white;
+    font-size: 18px; }
+    .about-us h4 .logo-sby {
+      color: #E8C8BD;
+      font-weight: 500;
+      margin: 0;
+      font-size: 20px;
+      font-family: Cookie; }
+    .about-us h4 .logo-real-estate {
+      color: #C5C5C5;
+      margin: 0;
+      font-weight: 100; }
+
+.statistics {
+  background-color: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 20px 0; }
+  .statistics h2 {
+    font-size: 26px;
+    color: #C5C5C5; }
+  .statistics ul {
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style-type: none;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-radius: 4px; }
+    .statistics ul li {
+      text-align: center; }
+      .statistics ul li .num {
+        color: #E8C8BD;
+        font-size: 30px;
+        font-weight: bold; }
+      .statistics ul li .title {
+        color: white;
+        font-size: 18px; }
+
+.footer {
+  background-color: #333333;
+  padding: 20px 0; }
+  .footer a {
+    padding: 0 10px;
+    color: #E8C8BD; }

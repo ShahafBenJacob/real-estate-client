@@ -1,11 +1,24 @@
 import React from "react";
-import '../node_modules/css';
+import "./scss/index.scss";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Navbar from "./routes/navbar/navbar";
+import HomePage from './routes/homepage';
+import SignUp from './routes/signup';
+import LogIn from './routes/login';
+import Search from './routes/search';
 
 function App() {
   return (
-    <div className={"row"}>
-      <div className={"col-6"} style={{border: "2px solid blue"}}><i class="fab fa-angellist"></i>Bootstrap and font awesome checking</div>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/signup" component={SignUp}/>
+        <Route path="/login" component={LogIn}/>
+        <Route path="/search" component={Search}/>
+        <Route path="/" component={HomePage}/>
+      </Switch>
+    </Router>
   );
 }
 
