@@ -11,9 +11,6 @@ p {
   font-family: 'Dosis', sans-serif;
   letter-spacing: 1px; }
 
-body {
-  background-color: #333333; }
-
 .row {
   margin: 0; }
 
@@ -69,8 +66,7 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: white; }
+  flex-direction: column; }
   .center .items {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -208,3 +204,9 @@ body {
   .footer a {
     padding: 0 10px;
     color: #E8C8BD; }
+
+.background-image {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }

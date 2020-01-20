@@ -3,10 +3,11 @@ import "./scss/index.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./routes/navbar/navbar";
-import HomePage from './routes/homepage';
+import HomePage from './routes/homepage/homepage';
 import SignUp from './routes/signup';
 import LogIn from './routes/login';
 import Search from './routes/search';
+import FootBar from './routes/footbar';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/search" component={Search}/>
         <Route path="/" component={HomePage}/>
       </Switch>
+      <FootBar/>
     </Router>
   );
 }

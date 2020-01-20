@@ -26,10 +26,6 @@ p {
 
 };
 
-body{
-    background-color: map-get($colors, "darkgray");
-}
-
 
 
 @mixin perfect-center {
@@ -99,8 +95,6 @@ body{
 
 .center {
     @include perfect-center-col();
-    background-color: map-get($colors, "white");
-
     .items {
         @include perfect-center-col();
         padding: 100px 0px;
@@ -215,4 +209,11 @@ body{
         padding: 0 10px;
         color: map-get($colors, "pink");
     }
+}
+
+.background-image{
+    width: 100%;
+    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
