@@ -24,7 +24,9 @@ p {
     font-family: 'Dosis', sans-serif;
     letter-spacing: 1px;
 
-};
+}
+
+;
 
 
 
@@ -95,6 +97,7 @@ p {
 
 .center {
     @include perfect-center-col();
+
     .items {
         @include perfect-center-col();
         padding: 100px 0px;
@@ -202,18 +205,208 @@ p {
 }
 
 
-.footer{
+.footer {
     background-color: map-get($colors, "darkgray");
     padding: 20px 0;
-    a{
+
+    a {
         padding: 0 10px;
         color: map-get($colors, "pink");
     }
 }
 
-.background-image{
+.background-image {
     width: 100%;
     background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
+.search-page{
+    background-color: map-get($colors, "lightgray");
+    .search-buttons-wrapper {
+        display: flex;
+        padding: 10px 0;
+    
+        .dropdown {
+            margin: 0 10px;
+        }
+    }
+}
+
+
+.apartment {
+    padding-bottom: 15px;
+    h5 {
+        font-size: 12px;
+        color: map-get($colors , "darkgray" );
+    }
+
+    .apartment-image {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        height: 250px;
+        width: 100%;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+
+        .heart {
+
+            color: map-get($colors, "white");
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 40px;
+        }
+
+        .heart:hover {
+            color: map-get($colors, "pink");
+        }
+
+        .titles-wrapper {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            background-color: rgba(0, 0, 0, 0.25);
+            padding: 5px;
+            border-radius: 5px;
+
+            .price {
+                font-size: 24px;
+                color: map-get($colors, "white");
+                font-weight: bold;
+                text-shadow: 1px 1px 1px map-get($colors, "blur-black");
+            }
+
+            .sale-status {
+                color: map-get($colors, "white");
+            }
+
+            .property-type {
+                color: map-get($colors, "white");
+            }
+        }
+
+
+    }
+
+    .under-image {
+        width: 100%;
+        background-color: map-get($colors, "white");
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        box-shadow: 0 1px 3px map-get($colors, "blur-black");
+        padding: 10px 0;
+
+        .address-wrapper {
+            display: flex;
+            padding: 5px 0;
+
+            h5 {
+                margin: 0 10px;
+                font-size: 18px;
+                i{
+                    padding: 0 10px 0 0;
+                    color: map-get($colors , "green" );
+
+                }
+            }
+        }
+
+        .apartment-detail-wrapper {
+            display: flex;
+            padding: 5px 0;
+
+            h5 {
+                margin: 0 10px;
+                font-size: 18px;
+                i{
+                    padding: 0 10px 0 0;
+                    color: map-get($colors , "green" );
+                }
+            }
+        }
+    }
+}
+
+/*loader symbol*/
+.lds-ellipsis {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+  }
+
+.lds-ellipsis .lds-wrap{
+	display: inline-block;
+    position: relative;
+    width: 80px;
+	height: 80px;
+}
+  .lds-ellipsis .lds-wrap div {
+    position: absolute;
+	top: 50%;
+	left: 50%;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+
+  .lds-ellipsis .lds-wrap .black-circle {
+    position: absolute;
+	top: 50%;
+	right: 50%;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.25);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+
+  .lds-ellipsis .lds-wrap div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis .lds-wrap div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis .lds-wrap div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis .lds-wrap div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+  .dropdown-item{
+      @include perfect-center()
+  }
