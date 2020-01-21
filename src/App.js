@@ -6,7 +6,7 @@ import Navbar from "./routes/navbar/navbar";
 import HomePage from './routes/homepage/homepage';
 import SignUp from './routes/signup';
 import LogIn from './routes/login';
-import Search from './routes/search';
+import Search from './routes/search/search';
 import FootBar from './routes/footbar';
 
 function App() {

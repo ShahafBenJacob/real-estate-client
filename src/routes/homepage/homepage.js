@@ -1,5 +1,5 @@
 import React from "react";
-import { getStatisticalData } from "../../api";
+import { getData } from "../../api/api";
 import CenterPage from "./innerComponents/center";
 import AboutUs from "./innerComponents/aboutUs";
 import Statistics from "./innerComponents/statistics";
@@ -9,21 +9,16 @@ class HomePage extends React.Component {
     super();
 
     this.state = {
-      apartments: [],
-      users: [],
-      "apartments/sold": []
+      apartments: 0,
+      users: 0,
+      soldApartments: 0
     };
   }
 
-  componentDidMount = () => {
-    getStatisticalData(this.handleSuccess, "apartments");
-    getStatisticalData(this.handleSuccess, "users");
-    getStatisticalData(this.handleSuccess, "apartments/sold");
-  };
-
-  handleSuccess = (data, type) => {
+  async componentDidMount(){
+    const data = await getData('/apartments/statistics');
     this.setState({
-      [type]: data
+      ...data
     });
   };
 
@@ -33,9 +28,9 @@ class HomePage extends React.Component {
         <CenterPage />
         <AboutUs />
         <Statistics
-          apartments={this.state.apartments.length}
-          soldApartments={this.state["apartments/sold"].length}
-          users={this.state.users.length}
+          apartments={this.state.apartments}
+          soldApartments={this.state.soldApartments}
+          users={this.state.users}
         />
       </div>
     );
