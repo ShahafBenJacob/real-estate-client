@@ -3,6 +3,7 @@ $colors: ("pink": #E8C8BD,
     "green": #053936,
     "darkgray": #333333,
     "white": white,
+    "red": rgb(168, 42, 42),
     "blur-black": rgba(0, 0, 0, 0.25),
     "blur-green": rgba(5, 57, 54, .5),
 );
@@ -222,12 +223,13 @@ p {
     background-repeat: no-repeat;
 }
 
-.search-page{
+.search-page {
     background-color: map-get($colors, "lightgray");
+
     .search-buttons-wrapper {
         display: flex;
-        padding: 10px 0;
-    
+        padding: 10px 5px;
+
         .dropdown {
             margin: 0 10px;
         }
@@ -237,9 +239,10 @@ p {
 
 .apartment {
     padding-bottom: 15px;
+
     h5 {
         font-size: 12px;
-        color: map-get($colors , "darkgray" );
+        color: map-get($colors, "darkgray");
     }
 
     .apartment-image {
@@ -306,9 +309,10 @@ p {
             h5 {
                 margin: 0 10px;
                 font-size: 18px;
-                i{
+
+                i {
                     padding: 0 10px 0 0;
-                    color: map-get($colors , "green" );
+                    color: map-get($colors, "green");
 
                 }
             }
@@ -321,9 +325,10 @@ p {
             h5 {
                 margin: 0 10px;
                 font-size: 18px;
-                i{
+
+                i {
                     padding: 0 10px 0 0;
-                    color: map-get($colors , "green" );
+                    color: map-get($colors, "green");
                 }
             }
         }
@@ -332,81 +337,108 @@ p {
 
 /*loader symbol*/
 .lds-ellipsis {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 200px;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
 
-.lds-ellipsis .lds-wrap{
-	display: inline-block;
+.lds-ellipsis .lds-wrap {
+    display: inline-block;
     position: relative;
     width: 80px;
-	height: 80px;
+    height: 80px;
 }
-  .lds-ellipsis .lds-wrap div {
+
+.lds-ellipsis .lds-wrap div {
     position: absolute;
-	top: 50%;
-	left: 50%;
+    top: 50%;
+    left: 50%;
     width: 13px;
     height: 13px;
     border-radius: 50%;
     background: #fff;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
-  }
+}
 
-  .lds-ellipsis .lds-wrap .black-circle {
+.lds-ellipsis .lds-wrap .black-circle {
     position: absolute;
-	top: 50%;
-	right: 50%;
+    top: 50%;
+    right: 50%;
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background-color: rgba(0,0,0,0.25);
+    background-color: rgba(0, 0, 0, 0.25);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
-  }
+}
 
-  .lds-ellipsis .lds-wrap div:nth-child(1) {
+.lds-ellipsis .lds-wrap div:nth-child(1) {
     left: 8px;
     animation: lds-ellipsis1 0.6s infinite;
-  }
-  .lds-ellipsis .lds-wrap div:nth-child(2) {
+}
+
+.lds-ellipsis .lds-wrap div:nth-child(2) {
     left: 8px;
     animation: lds-ellipsis2 0.6s infinite;
-  }
-  .lds-ellipsis .lds-wrap div:nth-child(3) {
+}
+
+.lds-ellipsis .lds-wrap div:nth-child(3) {
     left: 32px;
     animation: lds-ellipsis2 0.6s infinite;
-  }
-  .lds-ellipsis .lds-wrap div:nth-child(4) {
+}
+
+.lds-ellipsis .lds-wrap div:nth-child(4) {
     left: 56px;
     animation: lds-ellipsis3 0.6s infinite;
-  }
-  @keyframes lds-ellipsis1 {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes lds-ellipsis3 {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(0);
-    }
-  }
-  @keyframes lds-ellipsis2 {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(24px, 0);
-    }
-  }
+}
 
-  .dropdown-item{
-      @include perfect-center()
-  }
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+.dropdown-item {
+    @include perfect-center()
+}
+
+.search-details {
+    display: flex;
+    h5 {
+        font-size: 14px;
+        span{
+            color: map-get($colors, "red");
+            i {
+                padding: 0 15px;
+            }
+        }
+    }
+}
+
+.row{
+    padding: 0;
+}

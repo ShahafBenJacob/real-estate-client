@@ -217,7 +217,7 @@ p {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 10px 0; }
+    padding: 10px 5px; }
     .search-page .search-buttons-wrapper .dropdown {
       margin: 0 10px; }
 
@@ -408,3 +408,17 @@ p {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
+
+.search-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .search-details h5 {
+    font-size: 14px; }
+    .search-details h5 span {
+      color: #a82a2a; }
+      .search-details h5 span i {
+        padding: 0 15px; }
+
+.row {
+  padding: 0; }

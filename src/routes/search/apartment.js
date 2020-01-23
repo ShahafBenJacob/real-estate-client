@@ -9,7 +9,6 @@ function Apartment(props) {
         style={{ backgroundImage: `url(${props.main_image})` }}
       >
         <div className={"titles-wrapper"}>
-          <div className={"sale-status"}>{props.sale_status}</div>
           <div className={"property-type"}>{props.property_type}</div>
           <div className={"price"}>{`${props.price}$`}</div>
 

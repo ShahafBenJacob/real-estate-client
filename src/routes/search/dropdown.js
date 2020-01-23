@@ -18,6 +18,7 @@ function Dropdown(props) {
         {props.values.map((value, i) => {
           return (
             <button
+            onClick={ () => props.handleChange(value, props.obj)}
               key={i}
               className="dropdown-item"
               type="button"
