@@ -16,7 +16,7 @@ class HomePage extends React.Component {
   }
 
   async componentDidMount(){
-    const data = await getData('/apartments/statistics');
+    const data = await getData('apartments/statistics');
     this.setState({
       ...data
     });
