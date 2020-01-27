@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-function CenterPage() {
+function CenterPage(props) {
   return (
     <div
       className={"background-image"}
@@ -15,7 +15,7 @@ function CenterPage() {
           <h1>
             Home Is Where The <i className="fas fa-heart heart"></i> Is
           </h1>
-          <Link style={{ textDecoration: "none" }} to="/search">
+          <Link style={{ textDecoration: "none" }} to= "/search">
             <button>
               Fall In Love <br />
               With Our Homes
