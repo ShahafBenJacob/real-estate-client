@@ -21,44 +21,48 @@ class Search extends React.Component {
         property_type: "",
         number_of_room: "",
         number_of_bath: "",
-        price: "",
-      },
-      pagination: {
-        page: 1,
-        size: 9,
-        count: 0,
-        max: 0,
+        price: ""
       }
     };
   }
 
   async componentDidMount() {
-    let [buttonsValues, apartments, count] = await Promise.all([
+    let [buttonsValues, apartments] = await Promise.all([
       getData("apartments/buttonsValues"),
       getData(
-        `apartments/?city_name=${this.state.filters.city_name}&number_of_room=${this.state.filters.number_of_room}&number_of_bath=${this.state.filters.number_of_bath}&price=${this.state.filters.price}&property_type=${this.state.filters.property_type}&page=${this.state.pagination.page}&size=${this.state.pagination.size}`
-      ),
-      getData('apartments/countApartments'),
+        `apartments/?city_name=${this.state.filters.city_name}&number_of_room=${this.state.filters.number_of_room}&number_of_bath=${this.state.filters.number_of_bath}&price=${this.state.filters.price}&property_type=${this.state.filters.property_type}`
+      )
     ]);
     this.setState({
       ...buttonsValues,
       apartments: apartments,
-      pagination: { ...this.pagination, count: count },
-      loading: false,
-    })
+      loading: false
+    });
   }
 
   capitalizedName = str => {
     let fullName = "";
-    str.split(" ").map(name => {
-      fullName += name.charAt(0).toUpperCase() + name.slice(1);
-      fullName += " ";
+    let namesArr = str.split(" ").map(name => {
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    });
+    namesArr.forEach(name => {
+      fullName += name + " ";
     });
     return fullName;
   };
 
-  reloadApartments = () => {
-    this.componentDidMount();
+  async reloadApartments() {
+    let apartments = await getData(
+      `apartments/?city_name=${this.state.filters.city_name}&number_of_room=${this.state.filters.number_of_room}&number_of_bath=${this.state.filters.number_of_bath}&price=${this.state.filters.price}&property_type=${this.state.filters.property_type}`
+    );
+    this.setState({
+      apartments: apartments,
+      loading: false
+    });
+  }
+
+  invokeApartmentsRender = () => {
+    this.reloadApartments();
   };
 
   handleChange = (value, title) => {
@@ -69,7 +73,7 @@ class Search extends React.Component {
         filters: filtersValues,
         loading: true
       },
-      this.reloadApartments()
+      this.invokeApartmentsRender()
     );
   };
 
@@ -77,189 +81,190 @@ class Search extends React.Component {
     this.handleChange("", title);
   };
 
-
-  pagination = () => {
-    const maxPage = this.state.pagination.apartments / this.state.pagination.size
-    console.log(this.state.pagination.apartments)
-  }
-
   render() {
     return (
       <div className={"search-page"}>
-        <div className={"search-buttons-wrapper"}>
-          <Dropdown
-            title={"Cities"}
-            values={this.state.cities_name}
-            handleChange={this.handleChange}
-            obj={"city_name"}
-          />
-          <Dropdown
-            title={"Property Type"}
-            values={this.state.property_type}
-            handleChange={this.handleChange}
-            obj={"property_type"}
-          />
-          <Dropdown
-            title={"Number Of Rooms"}
-            values={this.state.number_of_room}
-            handleChange={this.handleChange}
-            obj={"number_of_room"}
-          />
-          <Dropdown
-            title={"Number Of Bath"}
-            values={this.state.number_of_bath}
-            handleChange={this.handleChange}
-            obj={"number_of_bath"}
-          />
-          <Dropdown
-            title={"Max Price"}
-            values={this.state.price}
-            handleChange={this.handleChange}
-            obj={"price"}
-          />
-        </div>
+        <DropdownButton
+          citiesName={this.state.cities_name}
+          propertyType={this.state.property_type}
+          numberOfRooms={this.state.number_of_room}
+          numberOfBaths={this.state.number_of_bath}
+          price={this.state.price}
+          handleChange={this.handleChange}
+        />
 
-        <div className={"search-details"}>
-          <h5>
-            {this.state.filters.city_name ? (
-              <span>
-                <i
-                  onClick={() => this.removeFilter("city_name")}
-                  className="fas fa-times-circle"
-                ></i>
-                {this.state.filters.city_name}
-              </span>
-            ) : (
-              <span></span>
-            )}
-          </h5>
-          <h5>
-            {this.state.filters.property_type ? (
-              <span>
-                <i
-                  onClick={() => this.removeFilter("property_type")}
-                  className="fas fa-times-circle"
-                ></i>
-                {this.state.filters.property_type}
-              </span>
-            ) : (
-              <span></span>
-            )}
-          </h5>
-          <h5>
-            {this.state.filters.number_of_room ? (
-              <span>
-                <i
-                  onClick={() => this.removeFilter("number_of_room")}
-                  className="fas fa-times-circle"
-                ></i>
-                {`Number of Rooms: ${this.state.filters.number_of_room}`}
-              </span>
-            ) : (
-              <span></span>
-            )}
-          </h5>
-          <h5>
-            {this.state.filters.number_of_bath ? (
-              <span>
-                <i
-                  onClick={() => this.removeFilter("number_of_bath")}
-                  className="fas fa-times-circle"
-                ></i>
-                {`Number of Baths: ${this.state.filters.number_of_bath}`}
-              </span>
-            ) : (
-              <span></span>
-            )}
-          </h5>
-          <h5>
-            {this.state.filters.price ? (
-              <span>
-                <i
-                  onClick={() => this.removeFilter("price")}
-                  className="fas fa-times-circle"
-                ></i>
-                {`Max Price: ${this.state.filters.price}`}
-              </span>
-            ) : (
-              <span></span>
-            )}
-          </h5>
-        </div>
+        <SearchDetails
+          citiesName={this.state.filters.city_name}
+          propertyType={this.state.filters.property_type}
+          numberOfRooms={this.state.filters.number_of_room}
+          numberOfBaths={this.state.filters.number_of_bath}
+          price={this.state.filters.price}
+          removeFilter={this.removeFilter}
+        />
 
         <div className={"row"}>
-          {this.state.loading
-            ? this.state.loaderMap.map(i => {
-                return (
-                  <div
-                    key={i}
-                    className="lds-ellipsis apartment col-lg-4 col-12 col-md-6"
-                  >
-                    <div className="lds-wrap">
-                      <div className={"black-circle"}></div>
-                      <div style={{ backgroundColor: "#E8C8BD" }}></div>
-                      <div className={"black-circle"}></div>
-                      <div className={"black-circle"}></div>
-                    </div>
-                  </div>
-                );
-              })
-            : this.state.apartments.map(apartment => {
-                return (
-                  <Apartment
-                    user_name={this.capitalizedName(apartment.user_name)}
-                    key={apartment.id}
-                    city_name={apartment.city_name}
-                    city_id={apartment.city_id}
-                    country_name={apartment.country_name}
-                    address={apartment.address}
-                    price={apartment.price}
-                    number_of_room={apartment.number_of_room}
-                    number_of_bath={apartment.number_of_bath}
-                    sqft={apartment.sqft}
-                    days_on_web={apartment.days_on_web}
-                    property_type={apartment.property_type}
-                    main_image={apartment.main_image}
-                  />
-                );
-              })}
+          {this.state.loading ? (
+            <LoadingSymbol loaderMap={this.state.loaderMap} />
+          ) : this.state.apartments.length > 0 ? (
+            this.state.apartments.map(apartment => {
+              return (
+                <Apartment
+                  user_name={this.capitalizedName(apartment.user_name)}
+                  key={apartment.id}
+                  city_name={apartment.city_name}
+                  city_id={apartment.city_id}
+                  country_name={apartment.country_name}
+                  address={apartment.address}
+                  price={apartment.price}
+                  number_of_room={apartment.number_of_room}
+                  number_of_bath={apartment.number_of_bath}
+                  sqft={apartment.sqft}
+                  days_on_web={apartment.days_on_web}
+                  property_type={apartment.property_type}
+                  main_image={apartment.main_image}
+                />
+              );
+            })
+          ) : (
+            <NoApartmentsAvailable />
+          )}
         </div>
-        <button onClick={() => this.pagination()}>
-          Load More Apartments
-        </button>
-
-        {/* <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#">
-                Previous
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                1
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                2
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                3
-              </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                Next
-              </a>
-            </li>
-          </ul>
-        </nav> */}
       </div>
     );
   }
 }
 
 export default Search;
+
+function DropdownButton(props) {
+  return (
+    <div className={"search-buttons-wrapper"}>
+      <Dropdown
+        title={"Cities"}
+        values={props.citiesName}
+        handleChange={props.handleChange}
+        obj={"city_name"}
+      />
+      <Dropdown
+        title={"Property Type"}
+        values={props.propertyType}
+        handleChange={props.handleChange}
+        obj={"property_type"}
+      />
+      <Dropdown
+        title={"Number Of Rooms"}
+        values={props.numberOfRooms}
+        handleChange={props.handleChange}
+        obj={"number_of_room"}
+      />
+      <Dropdown
+        title={"Number Of Bath"}
+        values={props.numberOfBaths}
+        handleChange={props.handleChange}
+        obj={"number_of_bath"}
+      />
+      <Dropdown
+        title={"Max Price"}
+        values={props.price}
+        handleChange={props.handleChange}
+        obj={"price"}
+      />
+    </div>
+  );
+}
+
+function SearchDetails(props) {
+  return (
+    <div className={"search-details"}>
+      <h5>
+        {props.citiesName ? (
+          <span>
+            <i
+              onClick={() => props.removeFilter("city_name")}
+              className="fas fa-times-circle"
+            ></i>
+            {props.citiesName}
+          </span>
+        ) : (
+          <span></span>
+        )}
+      </h5>
+      <h5>
+        {props.propertyType ? (
+          <span>
+            <i
+              onClick={() => props.removeFilter("property_type")}
+              className="fas fa-times-circle"
+            ></i>
+            {props.propertyType}
+          </span>
+        ) : (
+          <span></span>
+        )}
+      </h5>
+      <h5>
+        {props.numberOfRooms ? (
+          <span>
+            <i
+              onClick={() => props.removeFilter("number_of_room")}
+              className="fas fa-times-circle"
+            ></i>
+            {`Number of Rooms: ${props.numberOfRooms}`}
+          </span>
+        ) : (
+          <span></span>
+        )}
+      </h5>
+      <h5>
+        {props.numberOfBaths ? (
+          <span>
+            <i
+              onClick={() => props.removeFilter("number_of_bath")}
+              className="fas fa-times-circle"
+            ></i>
+            {`Number of Baths: ${props.numberOfBaths}`}
+          </span>
+        ) : (
+          <span></span>
+        )}
+      </h5>
+      <h5>
+        {props.price ? (
+          <span>
+            <i
+              onClick={() => props.removeFilter("price")}
+              className="fas fa-times-circle"
+            ></i>
+            {`Max Price: ${props.price}`}
+          </span>
+        ) : (
+          <span></span>
+        )}
+      </h5>
+    </div>
+  );
+}
+
+function LoadingSymbol(props) {
+  return props.loaderMap.map(i => {
+    return (
+      <div key={i} className="lds-ellipsis apartment col-lg-4 col-12 col-md-6">
+        <div className="lds-wrap">
+          <div className={"black-circle"}></div>
+          <div style={{ backgroundColor: "#E8C8BD" }}></div>
+          <div className={"black-circle"}></div>
+          <div className={"black-circle"}></div>
+        </div>
+      </div>
+    );
+  });
+}
+
+function NoApartmentsAvailable() {
+  return (
+    <div className={'noApartments-wrapper'}>
+      <h1>We Are Sorry...</h1>
+      <h2>No Matching Home For Your Search.</h2>
+    </div>
+  );
+}
