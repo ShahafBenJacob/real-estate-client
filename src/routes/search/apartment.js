@@ -6,7 +6,7 @@ function Apartment(props) {
       <h5>{`Published by ${props.user_name} ${props.days_on_web} Days Ago`}</h5>
       <div
         className={"apartment-image"}
-        style={{ backgroundImage: `url(${props.main_image})` }}
+        style={{ backgroundImage: `url(http://localhost:3000/${props.main_image})` }}
       >
         <div className={"titles-wrapper"}>
           <div className={"property-type"}>{props.property_type}</div>

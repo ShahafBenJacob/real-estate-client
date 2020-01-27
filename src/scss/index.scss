@@ -442,3 +442,17 @@ p {
 .row{
     padding: 0;
 }
+
+.noApartments-wrapper{
+    padding: 40px 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        font-size: 80px;
+        color: map-get($colors, "white");
+        text-shadow: 1px 1px 8px map-get($colors, "blur-black");
+    }
+}
