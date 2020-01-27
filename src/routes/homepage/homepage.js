@@ -15,17 +15,17 @@ class HomePage extends React.Component {
     };
   }
 
-  async componentDidMount(){
-    const data = await getData('apartments/statistics');
+  async componentDidMount() {
+    const data = await getData("apartments/statistics");
     this.setState({
       ...data
     });
-  };
+  }
 
   render() {
     return (
       <div className={"center row"}>
-        <CenterPage />
+        <CenterPage apartments={this.state.apartments} />
         <AboutUs />
         <Statistics
           apartments={this.state.apartments}

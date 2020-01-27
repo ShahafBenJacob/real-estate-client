@@ -22,7 +22,8 @@ class Search extends React.Component {
         number_of_room: "",
         number_of_bath: "",
         price: ""
-      }
+      },
+      size: 9,
     };
   }
 
@@ -33,11 +34,15 @@ class Search extends React.Component {
         `apartments/?city_name=${this.state.filters.city_name}&number_of_room=${this.state.filters.number_of_room}&number_of_bath=${this.state.filters.number_of_bath}&price=${this.state.filters.price}&property_type=${this.state.filters.property_type}`
       )
     ]);
-    this.setState({
-      ...buttonsValues,
-      apartments: apartments,
-      loading: false
-    });
+    setTimeout(
+      () =>
+        this.setState({
+          ...buttonsValues,
+          apartments: apartments,
+          loading: false
+        }),
+      1000
+    );
   }
 
   capitalizedName = str => {
@@ -62,7 +67,7 @@ class Search extends React.Component {
   }
 
   invokeApartmentsRender = () => {
-    this.reloadApartments();
+    setTimeout(() => this.reloadApartments(), 200);
   };
 
   handleChange = (value, title) => {
@@ -71,7 +76,9 @@ class Search extends React.Component {
     this.setState(
       {
         filters: filtersValues,
-        loading: true
+        loading: true,
+        size: 9,
+        showMore: true
       },
       this.invokeApartmentsRender()
     );
@@ -79,6 +86,23 @@ class Search extends React.Component {
 
   removeFilter = title => {
     this.handleChange("", title);
+    this.setState({
+      size: 9,
+      showMore: true
+    });
+  };
+
+  showMore = apartmentsNum => {
+    const currSize = this.state.size;
+    if (currSize + 9 < apartmentsNum) {
+      this.setState({
+        size: this.state.size + 9
+      });
+    } else {
+      this.setState({
+        size: apartmentsNum,
+      });
+    }
   };
 
   render() {
@@ -106,7 +130,7 @@ class Search extends React.Component {
           {this.state.loading ? (
             <LoadingSymbol loaderMap={this.state.loaderMap} />
           ) : this.state.apartments.length > 0 ? (
-            this.state.apartments.map(apartment => {
+            this.state.apartments.slice(0, this.state.size).map(apartment => {
               return (
                 <Apartment
                   user_name={this.capitalizedName(apartment.user_name)}
@@ -129,6 +153,8 @@ class Search extends React.Component {
             <NoApartmentsAvailable />
           )}
         </div>
+
+        {this.state.apartments.length > this.state.size ? <ShowMore showMore={this.showMore} apartments={this.state.apartments.length}/> : null}
       </div>
     );
   }
@@ -262,9 +288,22 @@ function LoadingSymbol(props) {
 
 function NoApartmentsAvailable() {
   return (
-    <div className={'noApartments-wrapper'}>
+    <div className={"noApartments-wrapper"}>
       <h1>We Are Sorry...</h1>
       <h2>No Matching Home For Your Search.</h2>
+    </div>
+  );
+}
+
+function ShowMore(props) {
+  return (
+    <div className={"show-more-wrapper"}>
+      <button
+        className={"show-more-button"}
+        onClick={() => props.showMore(props.apartments)}
+      >
+        Show More
+      </button>
     </div>
   );
 }
