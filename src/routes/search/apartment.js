@@ -1,9 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 function Apartment(props) {
   return (
     <div className={"apartment col-lg-4 col-12 col-md-6"}>
       <h5>{`Published by ${props.user_name} ${props.days_on_web} Days Ago`}</h5>
+      <Link
+            to={`/apartment/${props.id}`}
+            style={{ textDecoration: "none"}}
+          >
       <div
         className={"apartment-image"}
         style={{ backgroundImage: `url(http://localhost:3000/${props.main_image})` }}
@@ -25,6 +31,7 @@ function Apartment(props) {
           <h5><i className="fas fa-ruler-combined"></i>{props.sqft} Sqft</h5>
         </div>
       </div>
+      </Link>
     </div>
   );
 }

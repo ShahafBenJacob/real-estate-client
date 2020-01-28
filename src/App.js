@@ -8,6 +8,7 @@ import SignUp from './routes/signup';
 import LogIn from './routes/login';
 import Search from './routes/search/search';
 import FootBar from './routes/footbar';
+import SingleApartment from './routes/singleApartment/singleApartment';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" component={SignUp}/>
         <Route path="/login" component={LogIn}/>
         <Route path="/search" component={Search}/>
+        <Route path="/apartment/:id" component={SingleApartment}/>
         <Route path="/" component={HomePage}/>
       </Switch>
       <FootBar/>

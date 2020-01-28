@@ -135,6 +135,7 @@ class Search extends React.Component {
                 <Apartment
                   user_name={this.capitalizedName(apartment.user_name)}
                   key={apartment.id}
+                  id={apartment.id}
                   city_name={apartment.city_name}
                   city_id={apartment.city_id}
                   country_name={apartment.country_name}
