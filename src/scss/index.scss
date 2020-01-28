@@ -28,11 +28,14 @@ p {
 }
 
 ;
-body{
+
+body {
     position: relative;
 }
 
-button:focus {outline:0;}
+button:focus {
+    outline: 0;
+}
 
 
 @mixin perfect-center {
@@ -126,7 +129,7 @@ button:focus {outline:0;}
                 }
             }
 
-            button{
+            button {
                 background-color: map-get($colors, "green");
                 border: 1px solid map-get($colors, "green");
                 border-radius: 30px;
@@ -433,10 +436,13 @@ button:focus {outline:0;}
 
 .search-details {
     display: flex;
+
     h5 {
         font-size: 14px;
-        span{
+
+        span {
             color: map-get($colors, "red");
+
             i {
                 padding: 0 15px;
             }
@@ -444,18 +450,19 @@ button:focus {outline:0;}
     }
 }
 
-.row{
+.row {
     padding: 0;
 }
 
-.noApartments-wrapper{
+.noApartments-wrapper {
     padding: 40px 0;
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    h1{
+
+    h1 {
         font-size: 80px;
         color: map-get($colors, "white");
         text-shadow: 1px 1px 8px map-get($colors, "blur-black");
@@ -463,10 +470,11 @@ button:focus {outline:0;}
 }
 
 
-.show-more-wrapper{
+.show-more-wrapper {
     @include perfect-center();
     padding: 40px 0;
-    .show-more-button{
+
+    .show-more-button {
         background-color: map-get($colors, "green");
         border: 1px solid map-get($colors, "green");
         border-radius: 30px;
@@ -474,8 +482,26 @@ button:focus {outline:0;}
         @include perfect-center();
         color: map-get($colors, "white")
     }
-    
+
     .show-more-button:hover {
         background-color: map-get($colors, "blur-green");
     }
+}
+
+//********
+
+.carousel-wrapper {
+    height: 250px;
+    width: 300px;
+}
+
+.image {
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    width: 100%;
+}
+
+.page-wrapper {
+    @include perfect-center()
 }
