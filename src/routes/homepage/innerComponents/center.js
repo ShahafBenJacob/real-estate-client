@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-function CenterPage(props) {
+function CenterPage() {
   return (
     <div
       className={"background-image"}
