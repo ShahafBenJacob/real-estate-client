@@ -1,68 +1,5 @@
-$colors: ("pink": #E8C8BD,
-    "lightgray": #C5C5C5,
-    "green": #053936,
-    "darkgray": #333333,
-    "white": white,
-    "red": rgb(168, 42, 42),
-    "blur-black": rgba(0, 0, 0, 0.25),
-    "blur-green": rgba(5, 57, 54, .5),
-    "blur-pink": rgba(232, 200, 189, .5),
-);
+@import '../routes/general.scss';
 
-$fonts: ("main-header": Cookie,
-    "body": Dosis);
-
-h1 {
-    font-family: map-get($fonts, "main-header");
-}
-
-span,
-button,
-input,
-label,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    font-family: map-get($fonts, "body");
-    letter-spacing: 1px
-}
-
-;
-
-body {
-    position: relative;
-}
-
-button:focus {
-    outline: 0;
-}
-
-
-@mixin perfect-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin perfect-center-col {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-@mixin space-between-center {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.row {
-    margin: 0;
-}
 
 .wrap-logo {
     display: flex;
@@ -149,9 +86,13 @@ button:focus {
 
 }
 
+.homepage-wrapper{
+    height: 100vh;
+    background-color: map-get($colors, "darkgray");
+}
+
 .center {
     @include perfect-center-col();
-
     .items {
         @include perfect-center-col();
         padding: 100px 0px;
@@ -228,7 +169,6 @@ button:focus {
     background-color: map-get($colors, "darkgray");
     @include perfect-center-col();
     padding: 20px 0;
-
     h2 {
         font-size: 26px;
         color: map-get($colors, "lightgray");
@@ -537,21 +477,22 @@ button:focus {
 
 //********
 
-.carousel-wrapper {
-    height: 250px;
-    width: 300px;
-}
+// .carousel-wrapper {
+//     height: 250px;
+//     width: 300px;
+// }
 
-.image {
-    background-size: cover;
-    background-position: center;
-    height: 250px;
-    width: 100%;
-}
+// .image {
+//     background-size: cover;
+//     background-position: center;
+//     height: 250px;
+//     width: 100%;
+// }
 
-.page-wrapper {
-    @include perfect-center()
-}
+// .page-wrapper {
+//     @include perfect-center();
+//     height: 100vh;
+// }
 
 .page-login-wrapper {
     height: 100vh;

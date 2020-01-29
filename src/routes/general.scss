@@ -1,0 +1,68 @@
+
+
+$colors: ("pink": #E8C8BD,
+"lightgray": #C5C5C5,
+"green": #053936,
+"darkgray": #333333,
+"white": white,
+"red": rgb(168, 42, 42),
+"blur-black": rgba(0, 0, 0, 0.25),
+"blur-green": rgba(5, 57, 54, .5),
+"blur-pink": rgba(232, 200, 189, .5),
+);
+
+$fonts: ("main-header": Cookie,
+"body": Dosis);
+
+h1 {
+font-family: map-get($fonts, "main-header");
+}
+
+span,
+button,
+input,
+label,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+font-family: map-get($fonts, "body");
+letter-spacing: 1px
+}
+
+;
+
+body {
+position: relative;
+}
+
+button:focus {
+outline: 0;
+}
+
+
+.row {
+    margin: 0;
+}
+
+
+@mixin perfect-center {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+@mixin perfect-center-col {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+@mixin space-between-center {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}

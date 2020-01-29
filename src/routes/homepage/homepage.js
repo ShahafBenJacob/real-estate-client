@@ -24,14 +24,16 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div className={"center row"}>
-        <CenterPage apartments={this.state.apartments} />
-        <AboutUs />
-        <Statistics
-          apartments={this.state.apartments}
-          soldApartments={this.state.soldApartments}
-          users={this.state.users}
-        />
+      <div className={'homepage-wrapper'}>
+        <div className={"center row"}>
+          <CenterPage apartments={this.state.apartments} />
+          <AboutUs />
+          <Statistics
+            apartments={this.state.apartments}
+            soldApartments={this.state.soldApartments}
+            users={this.state.users}
+          />
+        </div>
       </div>
     );
   }
