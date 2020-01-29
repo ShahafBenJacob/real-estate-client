@@ -1,0 +1,119 @@
+@import '../general.scss';
+
+.homepage-wrapper{
+    height: 100vh;
+    background-color: map-get($colors, "darkgray");
+}
+
+.center {
+    @include perfect-center-col();
+    .background-image {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .items {
+        @include perfect-center-col();
+        padding: 100px 0px;
+
+        .second-background {
+            @include perfect-center-col();
+            background-color: map-get($colors, "blur-black");
+            padding: 20px;
+            border-radius: 50px;
+
+            h1 {
+                font-size: 50px;
+                font-weight: 900;
+                color: map-get($colors, "white");
+                margin-bottom: 20px;
+                font-weight: "bold";
+                text-shadow: 1px 1px 8px map-get($colors, "blur-black");
+
+                .heart {
+                    color: map-get($colors, "pink");
+                }
+            }
+
+            button {
+                background-color: map-get($colors, "green");
+                border: 1px solid map-get($colors, "green");
+                border-radius: 30px;
+                padding: 10px 30px;
+                @include perfect-center();
+                color: map-get($colors, "white")
+            }
+
+            button:hover {
+                background-color: map-get($colors, "blur-green");
+            }
+        }
+    }
+}
+
+
+
+.about-us {
+    background-color: map-get($colors, "darkgray");
+    @include perfect-center-col();
+    padding: 20px 0;
+
+    h2 {
+        font-size: 26px;
+        color: map-get($colors, "lightgray");
+    }
+
+    h4 {
+        color: map-get($colors, "white");
+        font-size: 18px;
+
+        .logo-sby {
+            color: map-get($colors, "pink");
+            font-weight: 500;
+            margin: 0;
+            font-size: 20px;
+            font-family: map-get($fonts, "main-header");
+        }
+
+        .logo-real-estate {
+            color: map-get($colors, "lightgray");
+            margin: 0;
+            font-weight: 100;
+
+        }
+    }
+}
+
+.statistics {
+    background-color: map-get($colors, "darkgray");
+    @include perfect-center-col();
+    padding: 20px 0;
+    h2 {
+        font-size: 26px;
+        color: map-get($colors, "lightgray");
+    }
+
+    ul {
+        text-align: center;
+        display: flex;
+        list-style-type: none;
+        justify-content: space-between;
+        border-radius: 4px;
+
+        li {
+            text-align: center;
+
+            .num {
+                color: map-get($colors, "pink");
+                font-size: 30px;
+                font-weight: bold;
+            }
+
+            .title {
+                color: map-get($colors, "white");
+                font-size: 18px;
+            }
+        }
+    }
+}

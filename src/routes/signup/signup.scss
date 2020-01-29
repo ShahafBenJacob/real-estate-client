@@ -1,0 +1,11 @@
+@import '../general.scss';
+
+
+.sign-page-wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+    background-color: map-get($colors, 'lightgray');
+}

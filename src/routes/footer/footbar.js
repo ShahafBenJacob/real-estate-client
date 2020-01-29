@@ -1,5 +1,7 @@
 import React from "react";
 
+import './footer.scss';
+
 function FootBar() {
   return (
     <div className={"footer container-fluid"}>

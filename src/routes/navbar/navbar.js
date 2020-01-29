@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Logo from "./logo";
 import api from "../../api/api";
 import Cookies from "js-cookie";
+import './navbar.scss';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -98,5 +98,12 @@ function AddApartmentButton(){
   );
 }
 
-
+function Logo() {
+  return (
+    <div className={"wrap-logo"}>
+      <h1 className={"logo-sby"}>SBY</h1>
+      <p className={"logo-real-estate"}>Real Estate</p>
+    </div>
+  );
+}
 

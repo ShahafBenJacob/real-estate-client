@@ -1,16 +1,16 @@
 import React from "react";
-import "./scss/index.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./routes/navbar/navbar";
 import HomePage from './routes/homepage/homepage';
-import SignUp from './routes/signup';
-import LogIn from './routes/login';
+import SignUp from './routes/signup/signup';
+import LogIn from './routes/login/login';
 import Search from './routes/search/search';
-import FootBar from './routes/footbar';
+import FootBar from './routes/footer/footbar';
 import SingleApartment from './routes/singleApartment/singleApartment';
 import AddApartment from './routes/addApartment/addApartments';
 
+import './routes/general.scss';
 
 function App() {
   return (
