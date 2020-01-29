@@ -9,6 +9,7 @@ import LogIn from './routes/login';
 import Search from './routes/search/search';
 import FootBar from './routes/footbar';
 import SingleApartment from './routes/singleApartment/singleApartment';
+import AddApartment from './routes/addApartment/addApartments';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" component={SignUp}/>
         <Route path="/login" component={LogIn}/>
         <Route path="/search" component={Search}/>
+        <Route path="/addApartment" component={AddApartment}/>
         <Route path="/apartment/:id" component={SingleApartment}/>
         <Route path="/" component={HomePage}/>
       </Switch>
