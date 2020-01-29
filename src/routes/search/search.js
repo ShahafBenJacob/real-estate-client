@@ -1,7 +1,8 @@
 import React from "react";
-import Dropdown from "./dropdown";
-import Apartment from "./apartment";
+import Dropdown from "./innerComponents/dropdown";
+import Apartment from "./innerComponents/apartment";
 import { getData } from "../../api/api";
+import './search.scss';
 
 class Search extends React.Component {
   constructor() {

@@ -1,0 +1,90 @@
+@import '../general.scss';
+
+
+
+
+
+.navbar {
+    @include space-between-center();
+    background-color: map-get($colors, "darkgray");
+
+    .wrap-logo {
+        display: flex;
+
+        .logo-sby {
+            font-size: 35px;
+            color: map-get($colors, "pink");
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .logo-real-estate {
+            font-size: 25px;
+            color: map-get($colors, "white");
+            margin: 0;
+            font-weight: 100;
+        }
+    }
+
+    .hello-user {
+        color: map-get($colors, "white");
+        font-size: 20px;
+        font-weight: lighter;
+        margin: 0;
+        padding: 0 10px;
+        position: relative;
+
+        i {
+            padding-right: 10px;
+        }
+
+        .add-apartment-wrapper {
+            display: none;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+
+            h2 {
+                color: map-get($colors, "green");
+            }
+
+            h2:hover {
+                color: map-get($colors, "blur-green");
+            }
+
+        }
+    }
+
+    .hello-user:hover div {
+        display: block;
+        background-color: map-get($colors, "white");
+        border: 1px solid map-get($colors, "green");
+        border-radius: 8px;
+        padding: 30px 30px;
+        @include perfect-center();
+        color: map-get($colors, "white");
+        z-index: 999;
+    }
+
+    .navbar-links {
+        display: flex;
+
+        h2,
+        span {
+            color: map-get($colors, "white");
+            font-size: 20px;
+            font-weight: lighter;
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        h2:hover {
+            color: map-get($colors, "pink");
+        }
+
+        .hello-user:hover {
+            color: map-get($colors, "white");
+        }
+    }
+
+}

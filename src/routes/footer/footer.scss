@@ -1,0 +1,11 @@
+@import '../general.scss';
+
+.footer {
+    background-color: map-get($colors, "darkgray");
+    padding: 20px 0;
+
+    a {
+        padding: 0 10px;
+        color: map-get($colors, "pink");
+    }
+}

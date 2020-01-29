@@ -1,7 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-import api, { postData } from "../api/api";
+import api, { postData } from "../../api/api";
+import './login.scss';
 
 class LogIn extends React.Component {
   constructor() {

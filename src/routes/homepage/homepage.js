@@ -3,6 +3,7 @@ import { getData } from "../../api/api";
 import CenterPage from "./innerComponents/center";
 import AboutUs from "./innerComponents/aboutUs";
 import Statistics from "./innerComponents/statistics";
+import './homepage.scss';
 
 class HomePage extends React.Component {
   constructor() {

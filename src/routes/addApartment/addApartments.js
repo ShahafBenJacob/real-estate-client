@@ -1,7 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-import api from "../../api/api"
+import api from "../../api/api";
+import './addApartments.scss';
 
 class AddApartment extends React.Component {
   constructor() {
