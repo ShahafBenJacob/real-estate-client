@@ -6,6 +6,7 @@ $colors: ("pink": #E8C8BD,
     "red": rgb(168, 42, 42),
     "blur-black": rgba(0, 0, 0, 0.25),
     "blur-green": rgba(5, 57, 54, .5),
+    "blur-pink": rgba(232, 200, 189, .5),
 );
 
 $fonts: ("main-header": Cookie,
@@ -15,16 +16,18 @@ h1 {
     font-family: map-get($fonts, "main-header");
 }
 
+span,
 button,
+input,
+label,
 h2,
 h3,
 h4,
 h5,
 h6,
 p {
-    font-family: 'Dosis', sans-serif;
-    letter-spacing: 1px;
-
+    font-family: map-get($fonts, "body");
+    letter-spacing: 1px
 }
 
 ;
@@ -85,10 +88,49 @@ button:focus {
     @include space-between-center();
     background-color: map-get($colors, "darkgray");
 
+    .hello-user {
+        color: map-get($colors, "white");
+        font-size: 20px;
+        font-weight: lighter;
+        margin: 0;
+        padding: 0 10px;
+        position: relative;
+
+        i {
+            padding-right: 10px;
+        }
+
+        .add-apartment-wrapper {
+            display: none;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            h2{
+                color: map-get($colors, "green");
+            }
+            h2:hover{
+                color: map-get($colors, "blur-green");
+            }
+
+        }
+    }
+
+    .hello-user:hover div {
+        display: block;
+        background-color: map-get($colors, "white");
+        border: 1px solid map-get($colors, "green");
+        border-radius: 8px;
+        padding: 30px 30px;
+        @include perfect-center();
+        color: map-get($colors, "white");
+        z-index: 999;
+    }
+
     .navbar-links {
         display: flex;
 
-        h2 {
+        h2,
+        span {
             color: map-get($colors, "white");
             font-size: 20px;
             font-weight: lighter;
@@ -98,6 +140,10 @@ button:focus {
 
         h2:hover {
             color: map-get($colors, "pink");
+        }
+
+        .hello-user:hover {
+            color: map-get($colors, "white");
         }
     }
 
@@ -454,7 +500,8 @@ button:focus {
     padding: 0;
 }
 
-.noApartments-wrapper {
+.noApartments-wrapper,
+.sign-page-wrapper {
     padding: 40px 0;
     width: 100vw;
     height: 100vh;
@@ -504,4 +551,58 @@ button:focus {
 
 .page-wrapper {
     @include perfect-center()
+}
+
+.page-login-wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+    background-color: map-get($colors, 'lightgray');
+
+    h1 {
+        font-size: 80px;
+        color: map-get($colors, "white");
+        text-shadow: 1px 1px 8px map-get($colors, "blur-black");
+        padding-bottom: 30px;
+    }
+
+    .login-wrapper {
+        form {
+            label {
+                font-size: 24px;
+                display: flex;
+                justify-content: center;
+                color: map-get($colors, 'darkgray');
+            }
+
+            .button-wrapper {
+                @include perfect-center();
+
+                button {
+                    font-size: 24px;
+                    display: flex;
+                    background-color: map-get($colors, 'pink');
+                    border-color: map-get($colors, 'pink');
+                }
+
+                button:hover {
+                    background-color: map-get($colors, 'green');
+                    border-color: map-get($colors, 'green');
+                }
+            }
+
+        }
+
+    }
+}
+
+.sign-page-wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+    background-color: map-get($colors, 'lightgray');
 }
