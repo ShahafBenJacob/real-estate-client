@@ -1,0 +1,81 @@
+@import '../../routes/general.scss';
+
+.page-row {
+    @include perfect-center-col();
+    height: 100vh;
+    background-color: map-get($colors, 'lightgray');
+
+    .page-wrapper {
+        box-shadow: 0 3px 3px map-get($colors, "blur-black");
+        padding: 0;
+
+        .carousel-wrapper {
+            height: 350px;
+            width: 100%;
+
+            .carousel-item {
+                .image {
+                    background-size: cover;
+                    background-position: center;
+                    height: 350px;
+                    width: 100%;
+                    border-top-right-radius: 8px;
+                    border-top-left-radius: 8px;
+                }
+            }
+
+            .carousel-control-next {
+                border-radius: 8px;
+            }
+        }
+
+        .details-part-wrapper {
+            background-color: map-get($colors, 'white');
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            display: flex;
+
+            .details-part {
+                padding: 20px;
+
+                h2 {
+                    font-size: 22px;
+
+                    i {
+                        font-size: 26px;
+                        padding-left: 7px;
+                    }
+
+                    span {
+                        color: map-get($colors, 'green');
+                        font-weight: 600;
+                    }
+                }
+
+                .price {
+                    font-size: 34px;
+                    font-weight: 600;
+                    text-shadow: 2px 2px 3px map-get($colors, "blur-black");
+                }
+            }
+        }
+    }
+
+    .back-all-apartments-wrapper {
+        @include perfect-center();
+        padding: 40px 0;
+
+        .back-all-apartments-button {
+            background-color: map-get($colors, "green");
+            border: 1px solid map-get($colors, "green");
+            border-radius: 30px;
+            padding: 10px 30px;
+            @include perfect-center();
+            color: map-get($colors, "white");
+        }
+
+        .back-all-apartments-button:hover {
+            background-color: map-get($colors, "blur-green");
+        }
+    }
+}

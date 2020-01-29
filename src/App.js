@@ -11,6 +11,7 @@ import FootBar from './routes/footbar';
 import SingleApartment from './routes/singleApartment/singleApartment';
 import AddApartment from './routes/addApartment/addApartments';
 
+
 function App() {
   return (
     <Router>
