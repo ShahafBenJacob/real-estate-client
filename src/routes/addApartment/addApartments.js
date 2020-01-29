@@ -29,7 +29,7 @@ class AddApartment extends React.Component {
   render() {
     return (
         <div className={"page-login-wrapper"}>
-          <h1>Log In</h1>
+          <h1>Add Apartment</h1>
           <div className={"login-wrapper col-4"}>
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
