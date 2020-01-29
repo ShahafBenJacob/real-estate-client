@@ -42,6 +42,18 @@ class Navbar extends React.Component {
       user_name: ""
     });
   }
+
+  capitalizedName = str => {
+    let fullName = "";
+    let namesArr = str.split(" ").map(name => {
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    });
+    namesArr.forEach(name => {
+      fullName += name + " ";
+    });
+    return fullName;
+  };
+
   render() {
     return (
       <div className={"navbar"}>
@@ -52,7 +64,7 @@ class Navbar extends React.Component {
           <div className={"navbar-links"}>
             <h2 className={"hello-user"}>
               <i className="fab fa-fort-awesome"></i>
-              {`Welcome Back ${this.state.user_name}`}
+              {`Welcome Back ${this.capitalizedName(this.state.user_name)}`}
               <AddApartmentButton/>
             </h2>
             <span>/</span>
